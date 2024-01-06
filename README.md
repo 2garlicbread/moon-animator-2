@@ -1,2 +1,3 @@
 # Moon Animator 2
-> I'll write this soon.
+> This is just a simple crack for Moon Animator 2, it likely won't be updated very often.
+
