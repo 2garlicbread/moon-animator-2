@@ -10,13 +10,11 @@
 		return
 	end
 
-	pluginToolbar = plugin:CreateToolbar("Moon Animator 2")																																																																																
-	pluginToolbar = plugin:CreateToolbar("Moon Animator 2")																																																																																
-
+	pluginToolbar = plugin:CreateToolbar("Moon Animator 2")
 	_G.MoonGlobal = {}
 	_g = _G.MoonGlobal
 
-	_g.ver = 32001
+	_g.ver = 32002
 
 	_g.toolbar = pluginToolbar
 
@@ -948,45 +946,45 @@ end
 do
 	local win_Activate = _g.Windows.Activate
 	
-	--local ver_ui = _g.new_ui.Version
-	--local ver_check = pcall(function()
-	--	local verCheck = game:GetService("MarketplaceService"):GetProductInfo(4725618216).Description
-	--	if verCheck then
-	--		local _, checkVer = string.find(verCheck, "!V")
-	--		if checkVer then
-	--			local theVer = tonumber(string.sub(verCheck, checkVer + 1))
-	--			if theVer > _g.ver then
-	--				ver_ui.Label.Text = "v"..tostring(_g.ver).." [OUT OF DATE, NEW v"..tostring(theVer).."]"
-	--				ver_ui.Visible = true
-	--			end
-	--		end
-	--	end
-	--end)
+	local ver_ui = _g.new_ui.Version
+	local ver_check = pcall(function()
+		local verCheck = game:GetService("MarketplaceService"):GetProductInfo(4725618216).Description
+		if verCheck then
+			local _, checkVer = string.find(verCheck, "!V")
+			if checkVer then
+				local theVer = tonumber(string.sub(verCheck, checkVer + 1))
+				if theVer > _g.ver then
+					ver_ui.Label.Text = "v"..tostring(_g.ver).." [OUT OF DATE, NEW v"..tostring(theVer).."]"
+					ver_ui.Visible = true
+				end
+			end
+		end
+	end)
 	--[[if not ver_check then
 		ver_ui.Label.Text = "[ OUT OF DATE ]"
 		ver_ui.Visible = true
 	end]]
-	--if ver_ui.Visible then
-	--	win_Activate.g_e.Activate.UI.Visible = false
-	--	win_Activate.g_e.Decline.UI.Visible = false
-	--	for _, ui in pairs(_g.new_ui:GetChildren()) do
-	--		if ui.ClassName == "ImageButton" then
-	--			for _, v in pairs(ui:GetDescendants()) do
-	--				if not pcall(function() local store = v.Text end) then
-	--					pcall(function() v.Visible = false end)
-	--				end
-	--			end
-	--		end
-	--	end
-	--	for _, win in pairs(_g.Windows) do
-	--		if win.moon_img then
-	--			win.moon_img.Visible = false
-	--		end
-	--		win.UI.TitleBar.Title.Visible = false
-	--	end
-	--end
-	--ver_ui:Clone().Parent = _g.Windows.MoonAnimator.UI.TitleBar
-	--ver_ui:Clone().Parent = _g.Windows.Activate.UI.TitleBar
+	if ver_ui.Visible then
+		win_Activate.g_e.Activate.UI.Visible = false
+		win_Activate.g_e.Decline.UI.Visible = false
+		for _, ui in pairs(_g.new_ui:GetChildren()) do
+			if ui.ClassName == "ImageButton" then
+				for _, v in pairs(ui:GetDescendants()) do
+					if not pcall(function() local store = v.Text end) then
+						pcall(function() v.Visible = false end)
+					end
+				end
+			end
+		end
+		for _, win in pairs(_g.Windows) do
+			if win.moon_img then
+				win.moon_img.Visible = false
+			end
+			win.UI.TitleBar.Title.Visible = false
+		end
+	end
+	ver_ui:Clone().Parent = _g.Windows.MoonAnimator.UI.TitleBar
+	ver_ui:Clone().Parent = _g.Windows.Activate.UI.TitleBar
 	
 	local create = {
 		pluginToolbar:CreateButton("",
