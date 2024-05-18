@@ -11,6 +11,7 @@
 	end
 
 	pluginToolbar = plugin:CreateToolbar("Moon Animator 2")
+
 	_G.MoonGlobal = {}
 	_g = _G.MoonGlobal
 
